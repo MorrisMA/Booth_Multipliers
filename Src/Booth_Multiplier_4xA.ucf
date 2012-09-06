@@ -1,0 +1,2 @@
+NET "Clk" TNM_NET = Clk;
+TIMESPEC TS_Clk = PERIOD "Clk" 7.85 ns HIGH 50%;   # Booth_Multiplier_4xA, 16 bit

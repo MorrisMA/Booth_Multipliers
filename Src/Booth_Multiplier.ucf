@@ -1,0 +1,2 @@
+NET "Clk" TNM_NET = Clk;
+TIMESPEC TS_Clk = PERIOD "Clk" 5 ns HIGH 50%;   # Booth_1x Multiplier 16 bit
