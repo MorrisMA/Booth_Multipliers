@@ -1,0 +1,34 @@
+CAPI=2:
+
+name : ::booth_multipliers:0
+
+filesets:
+  rtl:
+    files:
+      - Src/Booth_Multiplier_1xA.v
+      - Src/Booth_Multiplier_2x.v
+      - Src/Booth_Multiplier_4xA.v
+      - Src/Booth_Multiplier_4xB.v
+      - Src/Booth_Multiplier_4x.v
+      - Src/Booth_Multiplier.v
+    file_type : verilogSource
+
+  sky130:
+    files: [data/sky130.tcl : {file_type : tclSource}]
+    
+targets:
+  default:
+    filesets : [rtl]
+
+  lint_4xA:
+    default_tool: verilator
+    filesets : [rtl]
+    tools:
+      verilator:
+        mode: lint-only
+    toplevel : Booth_Multiplier_4xA
+
+  sky130_4xA:
+    default_tool : openlane
+    filesets : [rtl, sky130]
+    toplevel : Booth_Multiplier_4xA
